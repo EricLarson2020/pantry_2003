@@ -3,4 +3,6 @@ class Pantry
   def initialize
     @stock = Hash.new(0)
   end
+
+  def restock(ingredient, amount)
 end
