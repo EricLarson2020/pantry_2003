@@ -32,23 +32,27 @@ class CookBook
   end
 
   def summary
-
+    summary_array = []
   summary_hash = Hash.new(0)
 
     recipes.each do |recipe|
       ingredients_hash = Hash.new(0)
 
-      recipe.ingredients_required.each do |ingredient|
+      recipe.ingredients_required.each do |ingredient, amount|
+
         ingredients_hash[:ingredient] = ingredient.name
-        ingredients_hash[:amount] = ingredient.amount
+        ingredients_hash[:amount] = ingredient.unit
       end
-      #require"pry";binding.pry
-      summary_hash[:name] = recipe.name
-      summary_hash[:details] = {
-        summary_hash[:ingredients] = ingredients_hash
-        summary_hash[:total_calories] = recipe.total_calories
-      }
+
+
+    (summary_hash[:name] = recipe.name)
+      # summary_hash[:details] = {
+      #   summary_hash[:ingredients] = ingredients_hash
+      #   summary_hash[:total_calories] = recipe.total_calories
+      # }
   end
+summary_array
+  require"pry";binding.pry
 end
 
 end
