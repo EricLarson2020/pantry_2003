@@ -18,4 +18,9 @@ class CookBook
     end
   end
 
+  def highest_calorie_meal
+    require"pry";binding.pry
+
+  end
+
 end
