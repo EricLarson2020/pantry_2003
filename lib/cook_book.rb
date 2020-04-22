@@ -1,3 +1,4 @@
+require 'date'
 class CookBook
   attr_reader :recipes
   def initialize
@@ -19,10 +20,21 @@ class CookBook
   end
 
   def highest_calorie_meal
-  
+
     @recipes.max_by do |recipie|
       recipie.total_calories
     end
+  end
+
+  def date
+require"pry";binding.pry
+(Date.today).strftime("%m-%d-%Y")
+  end
+
+  def summary
+    require"pry";binding.pry
+    
+
   end
 
 end
