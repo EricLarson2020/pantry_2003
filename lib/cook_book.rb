@@ -27,14 +27,28 @@ class CookBook
   end
 
   def date
-require"pry";binding.pry
-(Date.today).strftime("%m-%d-%Y")
+
+    (Date.today).strftime("%m-%d-%Y")
   end
 
   def summary
-    require"pry";binding.pry
-    
 
+  summary_hash = Hash.new(0)
+
+    recipes.each do |recipe|
+      ingredients_hash = Hash.new(0)
+
+      recipe.ingredients_required.each do |ingredient|
+        ingredients_hash[:ingredient] = ingredient.name
+        ingredients_hash[:amount] = ingredient.amount
+      end
+      #require"pry";binding.pry
+      summary_hash[:name] = recipe.name
+      summary_hash[:details] = {
+        summary_hash[:ingredients] = ingredients_hash
+        summary_hash[:total_calories] = recipe.total_calories
+      }
   end
+end
 
 end
